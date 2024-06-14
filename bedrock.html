@@ -11,17 +11,24 @@
     <title>Donload Bedrock Server Latest</title>
   </head>
   <body>
-    <script>
-$.ajax({
-    url: "https://mc-bds-helper.vercel.app/api/latest", // specify the URL
-    type: "GET", // specify the type of request
-    success: function(result) { // define a success function
-        // display the response as an alert
-      alert(result);
-        console.log(result);
-    }
-});</script>
-    <h1>Hello, world!</h1>
+  <div id="belatest">
+<h2>Bedrock Server (linux) Latest Version</h2>
+<a type="button"id="dwl">Download</a>
+</div>
+
+<script>
+function loadDoc() {
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = function() {
+    
+    var a = document.getElementById('dwl'); //or grab it by tagname etc
+	a.href = this.responseText
+  }
+  xhttp.open("GET", "https://minevps.net/bedrock.php");
+  xhttp.send();
+}
+loadDoc()
+</script>
     
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
