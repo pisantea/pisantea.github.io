@@ -1,5 +1,10 @@
 #!/bin/bash
 
+retVal=$?
+if [ $retVal -ne 0 ]; then
+    exit 0
+fi
+
 DOWNLOAD_URL=$(curl -s https://mc-bds-helper.vercel.app/api/latest)
 DOWNLOAD_FILE=$(echo ${DOWNLOAD_URL} | cut -d"/" -f5) # Retrieve archive name
 
