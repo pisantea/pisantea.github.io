@@ -1,8 +1,6 @@
 DOWNLOAD_URL=$(curl -s https://mc-bds-helper.vercel.app/api/latest)
 DOWNLOAD_FILE=$(echo ${DOWNLOAD_URL} | cut -d"/" -f5) # Retrieve archive name
 
-echo -e "Downloading files from: $DOWNLOAD_URL"
-
 # Minecraft CDN Akamai blocks script user-agents
 RANDVERSION=$(echo $((1 + $RANDOM % 4000)))
 
@@ -15,5 +13,6 @@ else
 
     unzip -o $DOWNLOAD_FILE
     rm $DOWNLOAD_FILE
+    find . -type f -name '*bedrock-server-*' -delete
     echo "" > $DOWNLOAD_FILE
 fi
