@@ -10,6 +10,7 @@ if [ -e $DOWNLOAD_FILE ]
 then
     echo "Version is latest."
     ./bedrock_server
+    exit 0
 else
     echo "Version is not latest."
     curl -L -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.$RANDVERSION.212 Safari/537.36" -H "Accept-Language: en" -o $DOWNLOAD_FILE $DOWNLOAD_URL
@@ -19,4 +20,5 @@ else
     find . -type f -name '*bedrock-server-*' -delete
     echo "" > $DOWNLOAD_FILE
     ./bedrock_server
+    exit 0
 fi
