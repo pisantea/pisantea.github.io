@@ -25,3 +25,5 @@ else
     echo "" > $DOWNLOAD_FILE
     kill "$$"
 fi
+
+exit 0
